@@ -7,7 +7,7 @@ A lightweight OpenGL 3D engine for legacy and low-end hardware, focused on simpl
 - Mac OS X 10.6 Snow Leopard
 - Intel x86 / x86_64
 - Legacy OpenGL fixed-function pipeline
-- System OpenGL and GLUT frameworks
+- System OpenGL, GLUT and ApplicationServices frameworks
 - GCC / Xcode toolchain
 - No third-party dependencies for the basic renderer
 
@@ -30,7 +30,18 @@ Run it with:
 ./Build/PrimitiveGL
 ```
 
-The initial demo opens a 640x480 window with a gray gradient background and a white 3D cube.
+## Controls
+
+- `W` - move forward
+- `S` - move backward
+- `A` - move left
+- `D` - move right
+- `Q` - turn left
+- `R` - turn right
+- `Space` - move up
+- `Shift` - move down
+
+The current demo opens a 640x480 window with a gray gradient background and an RGB color cube.
 
 ## License
 
