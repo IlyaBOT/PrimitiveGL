@@ -9,7 +9,7 @@
 #include <stdio.h>
 #include <string.h>
 
-const char *ENGINE_VERSION = "0.2.0";
+const char *ENGINE_VERSION = "0.2.1";
 
 const int WINDOW_WIDTH = 640;
 const int WINDOW_HEIGHT = 480;
@@ -52,7 +52,7 @@ const CGKeyCode KEY_S = 0x01;
 const CGKeyCode KEY_D = 0x02;
 const CGKeyCode KEY_Q = 0x0C;
 const CGKeyCode KEY_W = 0x0D;
-const CGKeyCode KEY_R = 0x0F;
+const CGKeyCode KEY_E = 0x0E;
 const CGKeyCode KEY_SPACE = 0x31;
 const CGKeyCode KEY_SHIFT = 0x38;
 const CGKeyCode KEY_RIGHT_SHIFT = 0x3C;
@@ -475,8 +475,16 @@ void applyCamera()
     glMatrixMode(GL_MODELVIEW);
     glLoadIdentity();
 
-    glRotatef(-cameraYaw, 0.0f, 1.0f, 0.0f);
-    glTranslatef(-cameraX, -cameraY, -cameraZ);
+    double angle = cameraYaw * PI / 180.0;
+
+    float forwardX = (float)sin(angle);
+    float forwardZ = (float)-cos(angle);
+
+    gluLookAt(
+        cameraX, cameraY, cameraZ,
+        cameraX + forwardX, cameraY, cameraZ + forwardZ,
+        0.0, 1.0, 0.0
+    );
 }
 
 void updateWindowTitle()
@@ -542,7 +550,7 @@ void update()
     if (keyDown(KEY_Q))
         cameraYaw -= TURN_SPEED * deltaTime;
 
-    if (keyDown(KEY_R))
+    if (keyDown(KEY_E))
         cameraYaw += TURN_SPEED * deltaTime;
 
     double angle = cameraYaw * PI / 180.0;
