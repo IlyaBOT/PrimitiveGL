@@ -43,7 +43,7 @@ Enable the debug overlay with:
 - `A` - move left
 - `D` - move right
 - `Q` - turn left
-- `R` - turn right
+- `E` - turn right
 - `Space` - move up
 - `Shift` - move down
 
