@@ -412,6 +412,20 @@ void drawDebugOverlay()
             (double)gpuVramTotal / (1024.0 * 1024.0)
         );
     }
+    else if (gpuVramUsed >= 0) {
+        sprintf(
+            line,
+            "GPU VRAM Used: %.1f MB / N/A",
+            (double)gpuVramUsed / (1024.0 * 1024.0)
+        );
+    }
+    else if (gpuVramTotal > 0) {
+        sprintf(
+            line,
+            "GPU VRAM Used: N/A / %.1f MB",
+            (double)gpuVramTotal / (1024.0 * 1024.0)
+        );
+    }
     else {
         sprintf(line, "GPU VRAM Used: N/A");
     }
